@@ -2,13 +2,14 @@ let removeSVG = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
 let completeSVG = '<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24"> <path class="fill" d="M9 22l-10-10.598 2.798-2.859 7.149 7.473 13.144-14.016 2.909 2.806z" /> </svg>';
 
 let siteWidth = 400;
+let scale;
 
-if (window.matchMedia("(orientation: portrait)").matches) {
-  let scale = window.outerWidth / siteWidth
+if (window.innerHeight > window.innerWidth) {
+  scale = screen.width / siteWidth
 }
 
-if (window.matchMedia("(orientation: landscape)").matches) {
-  let scale = window.outerHeight / siteWidth
+if (window.innerHeight < window.innerWidth) {
+  scale = screen.height / siteWidth
 }
 
 document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=' + siteWidth + ', initial-scale=' + scale + '');
