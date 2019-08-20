@@ -14,10 +14,11 @@ body, header {
 
 @media all and (max-width: 600px) and (orientation:landscape) {
   body, header {
+    max-width: 600px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 0;
-    width: 80%;
+    width: 50%;
   }
 }
 
@@ -27,7 +28,7 @@ body, header {
     margin-left: auto;
     margin-right: auto;
     margin-top: 0;
-    width: 80%;
+    width: 50%;
   }
 }
 
