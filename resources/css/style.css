@@ -14,7 +14,6 @@ body, header {
 
 @media all and (min-width:960px) and (max-width: 1024px) {
   body, header {
-    max-width: 1024px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 0;
@@ -24,7 +23,6 @@ body, header {
 
 @media all and (min-width:801px) and (max-width: 959px) {
   body, header {
-    max-width: 1024px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 0;
@@ -34,7 +32,6 @@ body, header {
 
 @media all and (min-width:769px) and (max-width: 800px) {
   body, header {
-    max-width: 1024px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 0;
@@ -44,7 +41,6 @@ body, header {
 
 @media all and (min-width:569px) and (max-width: 768px) {
   body, header {
-    max-width: 1024px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 0;
@@ -54,7 +50,6 @@ body, header {
 
 @media all and (min-width:481px) and (max-width: 568px) {
   body, header {
-    max-width: 1024px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 0;
@@ -64,7 +59,6 @@ body, header {
 
 @media all and (min-width:321px) and (max-width: 480px) {
   body, header {
-    max-width: 1024px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 0;
@@ -74,7 +68,6 @@ body, header {
 
 @media all and (min-width:0px) and (max-width: 320px) {
   body, header {
-    max-width: 1024px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 0;
