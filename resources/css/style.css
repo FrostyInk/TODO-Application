@@ -14,7 +14,7 @@ body, header {
 
 body {
   /* Old: #e6e6e6 */
-  background: FFFFFF;
+  background: #f9f2eb;
   padding: 80px 0 0 0;
 }
 
@@ -183,9 +183,9 @@ ul.todo#complete:not(:empty) {
 
 ul.todo#complete:not(:empty):before {
   content: '';
-  width: 150px;
+  width: 250px;
   height: 1px;
-  background: #edf0f1;
+  background: #edd9c4;
   position: absolute;
   top: 30px;
   left: 50%;
