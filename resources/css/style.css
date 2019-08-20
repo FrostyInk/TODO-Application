@@ -10,6 +10,13 @@ body, header {
   margin-right: auto;
   margin-top: 0;
   width: 100%;
+
+  @media all and (min-width:960px) and (max-width: 1024px) {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    width: 50%;
+  }
 }
 
 body {
