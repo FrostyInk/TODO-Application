@@ -82,9 +82,9 @@ body, header {
   }
 }
 
-@media all and (max-width: 600px) and (orientation:landscape) {
+@media all and (orientation:landscape) {
   body, header {
-    max-width: 270px;
+    max-width: 600px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 0;
