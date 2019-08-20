@@ -15,6 +15,9 @@ body, header {
 @media all and (min-width:960px) and (max-width: 1024px) {
   body, header {
     max-width: 974px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
     width: 100%;
   }
 }
@@ -22,6 +25,9 @@ body, header {
 @media all and (min-width:801px) and (max-width: 959px) {
   body, header {
     max-width: 909px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
     width: 100%;
   }
 }
@@ -29,6 +35,9 @@ body, header {
 @media all and (min-width:769px) and (max-width: 800px) {
   body, header {
     max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
     width: 100%;
   }
 }
@@ -36,6 +45,9 @@ body, header {
 @media all and (min-width:569px) and (max-width: 768px) {
   body, header {
     max-width: 718px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
     width: 100%;
   }
 }
@@ -43,6 +55,9 @@ body, header {
 @media all and (min-width:481px) and (max-width: 568px) {
   body, header {
     max-width: 518px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
     width: 100%;
   }
 }
@@ -50,6 +65,9 @@ body, header {
 @media all and (min-width:321px) and (max-width: 480px) {
   body, header {
     max-width: 430px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
     width: 100%;
   }
 }
@@ -57,6 +75,19 @@ body, header {
 @media all and (min-width:0px) and (max-width: 320px) {
   body, header {
     max-width: 270px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    width: 100%;
+  }
+}
+
+@media all and (max-width: 600px) and (orientation:landscape) {
+  body, header {
+    max-width: 270px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
     width: 100%;
   }
 }
