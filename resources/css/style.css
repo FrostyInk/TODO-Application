@@ -153,8 +153,8 @@ header button {
   z-index: 2;
   border: 1px solid #dbad6a;
   /* Old: #61AEE2 */
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
   background: #fff;
   cursor: pointer;
 }
@@ -206,13 +206,11 @@ ul.todo li {
   background: #FFFFFF;
   border-radius: 5px;
   box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
-  margin: 0 0 10px 0;
+  margin: 10px 0 10px 0;
   padding: 14px 100px 14px 14px;
 }
 
-ul.todo li:last-of-type {
-  margin: 0;
-}
+ul.todo li:last-of-type {}
 
 ul.todo li .buttons {
   width: 100px;
@@ -274,12 +272,12 @@ ul.todo#complete:before {
 }
 
 ul.todo#todo:empty:after {
-  content: 'Nothing TODO yet!';
-  margin: 25px 0 0 0;
+  content: "Y'all got anymore of them tasks?";
+  margin: 35px 0 0 0;
 }
 
 ul.todo#complete:empty:after {
-  content: 'No completed tasks yet. :)';
+  content: "Click a checkmark to complete an item. :)";
 }
 
 ul.todo#todo:after,
@@ -287,7 +285,7 @@ ul.todo#complete:after {
   width: 100%;
   display: block;
   text-align: center;
-  font-size: 12px;
+  font-size: 14px;
   color: #aaa;
 }
 
