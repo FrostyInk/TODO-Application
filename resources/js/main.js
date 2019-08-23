@@ -1,18 +1,54 @@
+// Icons
 let removeSVG = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"> <path class="fill" d="M12 2c5.514 0 10 4.486 10 10s-4.486 10-10 10-10-4.486-10-10 4.486-10 10-10zm0-2c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6 13h-12v-2h12v2z" /></svg>';
 let completeSVG = '<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24"> <path class="fill" d="M9 22l-10-10.598 2.798-2.859 7.149 7.473 13.144-14.016 2.909 2.806z" /> </svg>';
 
+// Remove all the stored data
+// localStorage.removeItem('todoList');
+
+// Settings
 let siteWidth = 400;
-let scale;
+let scale = getScale();
+let data = (localStorage.getItem('todoList')) ? JSON.parse(localStorage.getItem('todoList')) : {
+  todo: [],
+  complete: []
+};
 
-if (window.innerHeight > window.innerWidth) {
-  scale = screen.width / siteWidth
+function getScale() {
+  // Checks if the device is in the landscape mode and scales it accordingly
+  if (window.innerHeight > window.innerWidth) {
+    return screen.width / siteWidth;
+  }
+
+  // Checks if the device is in the portrait mode and scales it accordingly
+  if (window.innerHeight < window.innerWidth) {
+    return screen.height / siteWidth;
+  }
 }
 
-if (window.innerHeight < window.innerWidth) {
-  scale = screen.height / siteWidth
-}
+init();
 
+// Set the scale of the app
 document.querySelector('meta[name="viewport"]').setAttribute('content', 'width=' + siteWidth + ', initial-scale=' + scale + '');
+
+// Initialize the todo app with the stored data
+function init() {
+  if (!data.todo.length && !data.complete.length) {
+    console.log("No data saved. Hello! :)");
+    return;
+  }
+
+  console.log("Found saved data... I'll fetch it right now!");
+  sortData(data.todo);
+  sortData(data.complete, true);
+}
+
+// Sorts the saved data into todo and complete lists
+function sortData(array, completed) {
+  for (let i = 0; i < array.length; i++) {
+    let value = array[i];
+    createContainer(value, completed);
+  }
+}
 
 // Detect click and AddItem when we press the '+' button
 document.getElementById('add').addEventListener('click', function() {
@@ -34,6 +70,11 @@ function addItem() {
     value = capitalizeFirst(value);
     createContainer(value);
     document.getElementById('item').value = '';
+
+    // Add the text into todo array
+    data.todo.push(value);
+
+    updated();
   }
 }
 
@@ -41,15 +82,37 @@ function addItem() {
 function removeItem() {
   let item = this.parentNode.parentNode;
   let parent = item.parentNode;
+  let id = parent.id;
+  let text = item.innerText;
 
+  // Remove the item from either todo or the complete list
+  if (id === 'todo') {
+    data.todo.splice(data.todo.indexOf(text), 1);
+  } else {
+    data.complete.splice(data.complete.indexOf(text), 1);
+  }
+
+  updated();
   parent.removeChild(item);
 }
 
+// Move the item to complete list
 function completeItem() {
   let item = this.parentNode.parentNode;
   let parent = item.parentNode;
   let id = parent.id;
-  console.log("Completing item");
+  let text = item.innerText;
+
+  // If the id is todo add it to the todo array, otherwise add it to the complete data array
+  if (id === 'todo') {
+    data.todo.splice(data.todo.indexOf(text), 1);
+    data.complete.push(text);
+  } else {
+    data.complete.splice(data.complete.indexOf(text), 1);
+    data.todo.push(text);
+  }
+
+  updated();
   // Check if the item should be added to completed or added to todo
   let target = (id === 'todo') ? document.getElementById('complete') : document.getElementById('todo');
 
@@ -59,8 +122,8 @@ function completeItem() {
 }
 
 // Create the container for our item
-function createContainer(text) {
-  let list = document.getElementById('todo');
+function createContainer(text, isCompleted) {
+  let list = (isCompleted) ? document.getElementById('complete') : document.getElementById('todo');
 
   let item = document.createElement('li');
   item.innerText = text;
@@ -85,6 +148,10 @@ function createContainer(text) {
   item.appendChild(buttons);
 
   list.insertBefore(item, list.childNodes[0]);
+}
+
+function updated() {
+  localStorage.setItem('todoList', JSON.stringify(data));
 }
 
 // Capitalizes every first letter of a word in a string
