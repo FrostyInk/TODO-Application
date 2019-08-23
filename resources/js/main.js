@@ -34,7 +34,7 @@ document.querySelector('meta[name="viewport"]').setAttribute('content', 'width='
 // Initialize the todo app with the stored data
 function init() {
   if (!data.todo.length && !data.complete.length) {
-    console.log("No data saved. Hello! :)");
+    console.log("No saved data found.");
     return;
   }
 
